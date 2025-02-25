@@ -1,4 +1,10 @@
 import { Button } from "@/components/ui/button";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -8,9 +14,16 @@ export const Navbar = () => {
         <Link to={"/"}>
           <img src="/logo.png" alt="logo" className="h-20" />
         </Link>
-        <Link to={"/login"}>
+        {/* <Link to={"/login"}>
           <Button>Login</Button>
-        </Link>
+        </Link> */}
+
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </nav>
     </>
   );
