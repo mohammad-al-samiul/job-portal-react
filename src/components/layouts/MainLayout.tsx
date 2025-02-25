@@ -6,8 +6,12 @@ export const MainLayout = () => {
   return (
     <>
       <div className="grid-background"></div>
-      <Navbar />
-      <Outlet />
+
+      <main className="min-h-screen max-w-[1400px] mx-auto">
+        <Navbar />
+        <Outlet />
+      </main>
+
       <Footer />
     </>
   );
