@@ -14,3 +14,9 @@ const supabaseClient = async (supabaseAccessToken: any) => {
 };
 
 export default supabaseClient;
+
+/****
+ * supabase setup --- database
+ * clerk setup --- authentication
+ * Integrate Supabase with Clerk
+ */
