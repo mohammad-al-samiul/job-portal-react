@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Link } from "react-router-dom";
+import companies from "../../components/data/companies.json";
+import Autoplay from "embla-carousel-autoplay";
 export const LandingPage = () => {
   return (
     <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20">
@@ -31,6 +40,34 @@ export const LandingPage = () => {
             Post a Job
           </Button>
         </Link>
+      </div>
+
+      {/* carousel */}
+      <div>
+        <Carousel
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
+          className="w-full py-10"
+        >
+          <CarouselContent className="flex gap-5 sm:gap-20 items-center">
+            {companies.map(({ name, path, id }) => (
+              <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/6">
+                <div>
+                  <img
+                    src={path}
+                    alt={name}
+                    className="h-9 sm:h-14 object-contain"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </main>
   );
