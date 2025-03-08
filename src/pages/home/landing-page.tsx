@@ -9,8 +9,16 @@ import {
 } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 import companies from "../../components/data/companies.json";
+import faq from "../../components/data/faq.json";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export const LandingPage = () => {
   return (
     <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20">
@@ -90,6 +98,18 @@ export const LandingPage = () => {
             Post jobs, manage applications, and find the best candidates.
           </CardContent>
         </Card>
+      </section>
+
+      {/* accordion */}
+      <section>
+        <Accordion type="single" collapsible>
+          {faq.map(({ question, answer }, index) => (
+            <AccordionItem key={index} value={`item-${index + 1}`}>
+              <AccordionTrigger>{question}</AccordionTrigger>
+              <AccordionContent>{answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
     </main>
   );
