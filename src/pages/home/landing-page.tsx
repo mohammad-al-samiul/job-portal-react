@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import companies from "../../components/data/companies.json";
 import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export const LandingPage = () => {
   return (
     <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20">
@@ -29,7 +30,7 @@ export const LandingPage = () => {
           Explore thousands of job listings or find the perfect candidate
         </p>
       </section>
-      <div className="flex gap-6 justify-center">
+      <section className="flex gap-6 justify-center">
         <Link to={"/jobs"}>
           <Button variant="blue" size="xl">
             Find Jobs
@@ -40,10 +41,10 @@ export const LandingPage = () => {
             Post a Job
           </Button>
         </Link>
-      </div>
+      </section>
 
       {/* carousel */}
-      <div>
+      <section>
         <Carousel
           plugins={[
             Autoplay({
@@ -68,7 +69,28 @@ export const LandingPage = () => {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-      </div>
+      </section>
+      {/* banner */}
+      <img src="/banner.jpeg" className="w-full" />
+
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For Job Seekers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Search and apply for jobs, track applications, and more.
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For Employers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Post jobs, manage applications, and find the best candidates.
+          </CardContent>
+        </Card>
+      </section>
     </main>
   );
 };
