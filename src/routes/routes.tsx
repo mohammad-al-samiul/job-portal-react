@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "orboarding",
+        path: "onboarding",
         element: <OnBoarding />,
       },
       {
